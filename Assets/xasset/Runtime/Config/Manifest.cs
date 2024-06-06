@@ -47,6 +47,7 @@ namespace xasset
         public string name;
         public int[] deps = Array.Empty<int>();
         public int bundle;
+        public int[] depBundles = Array.Empty<int>();
         public int dir;
         public AddressMode addressMode = AddressMode.LoadByPath;
         public int id { get; set; }

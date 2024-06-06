@@ -95,7 +95,7 @@ namespace xasset
             if (!IsDownloaded(bundle))
                 return false;
 
-            foreach (var dependency in bundle.deps)
+            foreach (var dependency in asset.depBundles)
                 if (!IsDownloaded(bundles[dependency]))
                     return false;
 

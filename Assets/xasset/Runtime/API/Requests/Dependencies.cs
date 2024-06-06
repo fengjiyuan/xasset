@@ -48,10 +48,9 @@ namespace xasset
         private void LoadAll()
         {
             var bundles = asset.manifest.bundles;
-            var bundle = bundles[asset.bundle];
             _bundleRequest = Load(bundles[asset.bundle]);
-            if (bundle.deps == null || bundle.deps.Length <= 0) return;
-            foreach (var dep in bundle.deps)
+            if (asset.depBundles == null || asset.depBundles.Length <= 0) return;
+            foreach (var dep in asset.depBundles)
                 Load(bundles[dep]);
         }
 

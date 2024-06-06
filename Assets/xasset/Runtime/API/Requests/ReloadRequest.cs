@@ -51,7 +51,7 @@ namespace xasset
                 var last = pair.Value.info;
                 var bundle = last.manifest.bundles[last.bundle];
                 if (!changed.Contains(bundle.name) &&
-                    !Array.Exists(bundle.deps, i => changed.Contains(last.manifest.bundles[i].name))) continue;
+                    !Array.Exists(last.depBundles, i => changed.Contains(last.manifest.bundles[i].name))) continue;
                 if (!versions.TryGetAsset(last.path, out var value)) continue;
                 pair.Value.info = value;
                 Reload(pair.Value);

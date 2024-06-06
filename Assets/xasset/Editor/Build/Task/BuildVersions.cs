@@ -94,8 +94,19 @@ namespace xasset.editor
                 foreach (var dependency in dependencies)
                     if (map.TryGetValue(dependency, out var dep))
                         deps.Add(dep.id);
-
                 asset.deps = deps.ToArray();
+            }
+
+            foreach (var asset in assets)
+            {
+                var depBundles = new List<int>();
+                foreach (var depAsset in asset.deps)
+                {
+                    var depBundle = assets[depAsset].bundle;
+                    if (depBundle != asset.bundle && !depBundles.Contains(depBundle))
+                        depBundles.Add(depBundle);
+                }
+                asset.depBundles = depBundles.ToArray();
             }
 
             manifest.Clear();
@@ -144,7 +155,7 @@ namespace xasset.editor
                 foreach (var asset in assets)
                 {
                     if (!manifest.TryGetAsset(asset, out var result)) continue;
-                    set.Add(result.bundle); 
+                    set.Add(result.bundle);
                 }
 
                 set.ExceptWith(packed);
@@ -159,9 +170,9 @@ namespace xasset.editor
                     manifest = manifest,
                     assets = bundles,
                     deliveryMode = group.deliveryMode
-                }); 
-            } 
+                });
+            }
             manifest.groups = manifestGroups.ToArray();
-        } 
+        }
     }
 }

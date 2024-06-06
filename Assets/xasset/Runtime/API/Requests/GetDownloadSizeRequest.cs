@@ -46,7 +46,7 @@ namespace xasset
                             var bundles = group.manifest.bundles;
                             var bundle = bundles[asset];
                             set.Add(bundle); 
-                            foreach (var dep in bundle.deps)
+                            foreach (var dep in group.manifest.assets[asset].depBundles)
                                 set.Add(bundles[dep]);
                         }
                     }
@@ -58,7 +58,7 @@ namespace xasset
                             var bundles = asset.manifest.bundles;
                             var bundle = bundles[asset.bundle];
                             set.Add(bundle);
-                            foreach (var dep in bundle.deps)
+                            foreach (var dep in asset.depBundles)
                                 set.Add(bundles[dep]);
                         }
                     }
