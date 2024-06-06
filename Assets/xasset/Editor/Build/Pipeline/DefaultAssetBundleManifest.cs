@@ -19,7 +19,7 @@ namespace xasset.editor
 
         public string[] GetDependencies(string assetBundle)
         {
-            return _manifest.GetDirectDependencies(assetBundle);
+            return _manifest.GetAllDependencies(assetBundle);
         }
 
         public string GetAssetBundleHash(string assetBundle)
