@@ -62,7 +62,7 @@ MonoBehaviour:
     assets:
     - asset: Assets/xasset/Samples/Arts/Scenes/Download.unity
       bundleMode: 5
-      addressMode: 0
+      addressMode: 2
       filter: 
       bundle: scenes_download_unity.bundle
     desc: 
