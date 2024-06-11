@@ -93,6 +93,7 @@ namespace xasset
             if (failed == 0)
             {
                 SetResult(Result.Success);
+                return true;
             }
             else
             {
