@@ -97,8 +97,7 @@ namespace xasset
             else
             {
                 // 网络可达才自动 Retry
-                if (Application.internetReachability != NetworkReachability.NotReachable
-                    && _retryTimes < Assets.MaxRetryTimes)
+                if (Application.internetReachability != NetworkReachability.NotReachable && _retryTimes < Assets.MaxRetryTimes)
                 {
                     Retry();
                     _retryTimes++;
@@ -157,8 +156,7 @@ namespace xasset
                 var batch = Progressing[index];
                 if (batch.Update()) continue;
                 Progressing.RemoveAt(index);
-                index--;
-                batch.Complete();
+                index--; 
             }
         }
 
